@@ -15,6 +15,8 @@ static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 // This is like the `main` function, except for JavaScript.
 #[wasm_bindgen(start)]
 pub fn main_js() -> Result<(), JsValue> {
+
+    let image = web_sys::HtmlImageElement::new().unwrap();
     let window = web_sys::window().unwrap();
     let document = window.document().unwrap();
     let canvas = document
